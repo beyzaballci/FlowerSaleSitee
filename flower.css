@@ -71,3 +71,56 @@ body {
 .product-card h3 {
     margin-top: 15px;
 }
+
+/* ▼▼▼ RESPONSIVE TASARIM ▼▼▼ */
+
+@media (max-width: 768px) {
+
+    /* HERO */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-img {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    /* PRODUCT GRID → 2’li olur */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .product-card img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Çok küçük telefonlar için */
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* Ürünler 1’li olur */
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card img {
+        height: 180px;
+    }
+}
