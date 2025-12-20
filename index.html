@@ -1,51 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flower Sale Site</title>
-    <link rel="stylesheet" href="flower.css">
+    <meta charset="UTF-8" />
+    <title>flowerest</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">flowerest</div>
+        <ul>
+            <li>Flowers</li>
+            <li>Meanings</li>
+            <li>About</li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-text">
-            <h1>Fresh Flowers<br>Delivered to<br>Your Door</h1>
-            <button id="shopBtn" class="btn">SHOP NOW</button>
+            <h1>Every flower<br>has a story</h1>
+            <p>Çiçeklerin anlamlarını ve onlara dair küçük sırları keşfet.</p>
         </div>
-
-        <!-- Sen buraya istediğin resmi koy -->
-        <img src="images/indir (1).jpg" class="hero-img">
     </section>
 
-    <!-- FEATURED PRODUCTS -->
-    <section id="featured" class="featured-section">
-        <h2>Featured Products</h2>
+    <!-- FLOWER GRID -->
+    <section class="flowers">
+        <h2>Flowers</h2>
 
-        <div class="product-grid">
-            <!-- 3’lü ürün satırı, hepsi aynı boyut -->
-            <div class="product-card">
-                <img src="images/indir (2).jpg" alt="">
-                <h3>Flower 1</h3>
-            </div>
-
-            <div class="product-card">
-                <img src="images/indir (3).jpg" alt="">
-                <h3>Flower 2</h3>
-            </div>
-
-            <div class="product-card">
-                <img src="images/indir (4).jpg" alt="">
-                <h3>Flower 3</h3>
-            </div>
+        <div class="flower-grid" id="flowerGrid">
+            <!-- JS buraya kartları basacak -->
         </div>
-
     </section>
 
-    <script src="flower.js"></script>
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+
+            <img id="modalImage" />
+            <h2 id="modalName"></h2>
+            <p class="meaning" id="modalMeaning"></p>
+
+            <h4>İlginç Bilgiler</h4>
+            <ul id="modalFacts"></ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 
 </html>

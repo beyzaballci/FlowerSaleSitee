@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f7f4;
+    color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 60px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    font-size: 14px;
+}
+
+/* HERO */
+.hero {
+    height: 78vh;
+    background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6") center/cover;
+    display: flex;
+    align-items: center;
+}
+
+.hero-text {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 60px;
+    margin-left: 80px;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+/* FLOWERS */
+.flowers {
+    padding: 80px;
+}
+
+.flowers h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.flower-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.flower-card {
+    cursor: pointer;
+}
+
+.flower-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.flower-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 12px;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 40px;
+    width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.meaning {
+    margin: 15px 0;
+    font-style: italic;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+/* =========================
+   RESPONSIVE (MOBILE)
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        align-items: center;
+    }
+
+    .navbar ul {
+        gap: 20px;
+        font-size: 13px;
+    }
+
+    .hero {
+        height: 60vh;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-text {
+        margin: 0 20px;
+        padding: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 34px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+    }
+
+    .flowers {
+        padding: 40px 20px;
+    }
+
+    .flowers h2 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .flower-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .flower-card img {
+        height: 240px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .modal-content img {
+        height: 200px;
+    }
+
+    .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .meaning {
+        font-size: 14px;
+    }
+
+    .close {
+        font-size: 24px;
+    }
+}
