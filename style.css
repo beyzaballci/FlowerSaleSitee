@@ -4,35 +4,77 @@
     box-sizing: border-box;
 }
 
+/* =====================
+   GENERAL
+   ===================== */
 body {
     font-family: 'Poppins', sans-serif;
     background: #f9f7f4;
     color: #333;
 }
 
-/* NAVBAR */
+/* =====================
+   NAVBAR
+   ===================== */
 .navbar {
+    height: 90px;
+    background: #f9f7f4;
+}
+
+/* 🔥 ORTALI NAVBAR İÇERİĞİ */
+.navbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 24px 60px;
+    align-items: center;
 }
 
+/* =====================
+   LOGO (ÇİZGİSİZ – BİNDİRMELİ)
+   ===================== */
 .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 0;
 }
 
-.navbar ul {
+.logo-img {
+    height: 52px;
+    width: auto;
+    margin-right: -14px;
+    /* 🔥 PNG boşluğunu eziyoruz */
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1;
+}
+
+/* =====================
+   MENU
+   ===================== */
+.menu {
     display: flex;
     gap: 30px;
     list-style: none;
     font-size: 14px;
 }
 
-/* HERO */
+.menu li {
+    cursor: pointer;
+}
+
+/* =====================
+   HERO
+   ===================== */
 .hero {
-    height: 78vh;
-    background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6") center/cover;
+    min-height: calc(83vh - 90px);
+    background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6") center / cover no-repeat;
     display: flex;
     align-items: center;
 }
@@ -54,9 +96,11 @@ body {
     font-size: 15px;
 }
 
-/* FLOWERS */
+/* =====================
+   FLOWERS
+   ===================== */
 .flowers {
-    padding: 80px;
+    padding: 120px 80px 80px;
 }
 
 .flowers h2 {
@@ -86,7 +130,9 @@ body {
     margin-top: 12px;
 }
 
-/* MODAL */
+/* =====================
+   MODAL
+   ===================== */
 .modal {
     position: fixed;
     inset: 0;
@@ -130,26 +176,32 @@ body {
     font-size: 22px;
 }
 
-/* =========================
-   RESPONSIVE (MOBILE)
-   ========================= */
-
+/* =====================
+   RESPONSIVE
+   ===================== */
 @media (max-width: 768px) {
 
-    .navbar {
+    .navbar-inner {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
         padding: 20px;
-        align-items: center;
     }
 
-    .navbar ul {
+    .menu {
         gap: 20px;
-        font-size: 13px;
+    }
+
+    .logo-img {
+        height: 36px;
+        margin-right: -10px;
+    }
+
+    .logo-text {
+        font-size: 20px;
     }
 
     .hero {
-        height: 60vh;
+        min-height: 60vh;
         justify-content: center;
         text-align: center;
     }
@@ -163,46 +215,16 @@ body {
         font-size: 34px;
     }
 
-    .hero-text p {
-        font-size: 14px;
-    }
-
     .flowers {
-        padding: 40px 20px;
-    }
-
-    .flowers h2 {
-        font-size: 26px;
-        text-align: center;
+        padding: 60px 20px;
     }
 
     .flower-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .flower-card img {
-        height: 240px;
     }
 
     .modal-content {
         width: 90%;
         padding: 25px;
-    }
-
-    .modal-content img {
-        height: 200px;
-    }
-
-    .modal-content h2 {
-        font-size: 24px;
-    }
-
-    .meaning {
-        font-size: 14px;
-    }
-
-    .close {
-        font-size: 24px;
     }
 }
