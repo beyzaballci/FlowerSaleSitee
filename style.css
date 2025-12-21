@@ -38,7 +38,10 @@ body {
     display: flex;
     align-items: center;
     gap: 0;
+    margin-left: -102px;
+    /* 🔥 sola kaydırma */
 }
+
 
 .logo-img {
     height: 52px;
@@ -65,6 +68,10 @@ body {
     font-size: 14px;
 }
 
+.menu {
+    margin-right: -90px;
+}
+
 .menu li {
     cursor: pointer;
 }
@@ -74,7 +81,7 @@ body {
    ===================== */
 .hero {
     min-height: calc(83vh - 90px);
-    background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6") center / cover no-repeat;
+    background: url("images/ci3.jpg") center / cover no-repeat;
     display: flex;
     align-items: center;
 }
@@ -185,10 +192,15 @@ body {
         flex-direction: column;
         gap: 12px;
         padding: 20px;
+        align-items: center;
     }
 
     .menu {
         gap: 20px;
+        justify-content: center;
+        margin-right: 0;
+        transform: none;
+        width: 100%;
     }
 
     .logo-img {
@@ -220,7 +232,8 @@ body {
     }
 
     .flower-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
 
     .modal-content {

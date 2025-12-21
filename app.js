@@ -341,7 +341,33 @@ const faqs = [
     {
         question: "Orkide kaç günde bir sulanmalı?",
         answer: "Genelde haftada 1 kez yeterlidir. Köklerin kuruması beklenmelidir."
+    },
+    {
+        question: "Çiçekler neden kokar?",
+        answer: "Çiçekler güzel kokmak için değil, tozlaşmak için koku üretir. Koku, arı ve kelebek gibi canlıları kendine çeker. Bu canlılar poleni taşıyarak çiçeğin çoğalmasını sağlar. Yani koku, çiçeğin hayatta kalma yöntemlerinden biridir"
+    },
+    {
+        question: "Musluk suyu bitkilere zarar verir mi?",
+        answer: "Musluk suyu çoğu bitki için genellikle zararlı değildir ancak içeriğindeki kireç ve klor zamanla toprağı olumsuz etkileyebilir. Özellikle hassas bitkilerde yaprak uçlarında sararma görülebilir. Suyu birkaç saat dinlendirerek kullanmak bitkiler için daha sağlıklıdır."
+    },
+    {
+        question: "Bitkiler yer değiştirmeyi sevmez mi?",
+        answer: "Evet, çoğu bitki yer değiştirmeyi sevmez. Işık açısı, sıcaklık ve hava akımı değiştiğinde bitki bunu stres olarak algılar. Bu stres yaprak dökülmesi veya büyümenin yavaşlaması şeklinde ortaya çıkabilir."
+    },
+    {
+        question: "Bir bitkiyi fazla sevip öldürmek mümkün mü?",
+        answer: "Evet, bu oldukça yaygın bir durumdur. Aşırı sulama, sürekli yer değiştirme ve gereğinden fazla müdahale bitkinin köklerine zarar verebilir. Bitkiler düzeni ve dengeyi sever, fazla ilgi çoğu zaman zarar verir."
+    },
+    {
+        question: "Bitkiler gece uyur mu?",
+        answer: "Bir bakıma evet. Gece fotosentez durur ve bitki dinlenme moduna geçer. Bazı bitkilerin yapraklarını gece kapatması bu doğal biyolojik ritmin bir parçasıdır."
+    },
+    {
+        question: "Çiçekler oksijen üretir mi yoksa sadece yapraklar mı?",
+        answer: "Oksijen üretimi fotosentez yoluyla gerçekleşir ve bu işlem çoğunlukla yapraklarda olur. Çiçekler daha çok üreme görevine odaklanır. Ancak çiçeğin bağlı olduğu bitkinin yaprakları sayesinde bitki oksijen üretmeye devam eder."
     }
+
+
 ];
 
 /* =====================
