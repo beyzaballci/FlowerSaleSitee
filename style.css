@@ -307,3 +307,199 @@ body {
 #weatherModal button:hover {
     background: #587a5d;
 }
+
+/* =====================
+   WEATHER TOOLTIP
+   ===================== */
+
+.tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    color: #333;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    width: 220px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.weather-card:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-6px);
+}
+
+.tooltip-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+/* =====================
+   CHOOSE FOR ME MODAL
+   ===================== */
+
+#chooseModal .modal-content {
+    max-width: 520px;
+}
+
+#chooseModal h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 8px;
+}
+
+#chooseModal p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+.choose-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.choose-group label {
+    font-size: 13px;
+    color: #333;
+}
+
+.choose-group select {
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+#chooseBtn {
+    margin-top: 10px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    background: #2f5d50;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#chooseBtn:hover {
+    opacity: 0.9;
+}
+
+#chooseResult {
+    margin-top: 20px;
+    padding-left: 0;
+    list-style: none;
+}
+
+#chooseResult li {
+    padding: 10px 12px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* =====================
+   CHOOSE RESULT CARDS
+   ===================== */
+
+#chooseResult {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+    padding: 0;
+    list-style: none;
+}
+
+/* =====================
+   CHOOSE RESULT CARDS
+   ===================== */
+
+#chooseResult {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+    padding: 0;
+    list-style: none;
+}
+
+.choose-card {
+    background: #f6f6f6;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.choose-card img {
+    width: 100%;
+    height: 120px;
+    /* 🔥 BURASI ÖNEMLİ */
+    object-fit: cover;
+    display: block;
+}
+
+.choose-card span {
+    display: block;
+    padding: 6px 0 8px;
+    font-size: 13px;
+}
+
+.choose-card:hover img {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.story-card {
+    cursor: pointer;
+}
+
+.story-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.story-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    margin: 10px 0 4px;
+}
+
+.story-card p {
+    font-size: 13px;
+    color: #555;
+}
+
+/* Base modal */
+.modal {
+    z-index: 1000;
+}
+
+/* Stories modal arkada kalsın */
+#storiesModal {
+    z-index: 1100;
+}
+
+/* Hikâye detayı EN ÜSTTE */
+#modal {
+    z-index: 1200;
+}

@@ -3,6 +3,8 @@
    ===================== */
 const API_KEY = "2d48ca006bf4ab3a9949c859e98ff831";
 
+
+
 /* =====================
    FLOWERS
    ===================== */
@@ -170,6 +172,22 @@ const plants = [
     { name: "Monstera", image: "images/monstera.jpg" }
 ];
 
+const stories = [
+    {
+        title: "Lavanta’nın Huzur Veren Hikâyesi",
+        image: "images/lavanta.jpg",
+        excerpt: "Lavanta yüzyıllardır sakinleştirici etkisiyle bilinir.",
+        content: "Lavanta Antik Roma’dan beri hem şifa hem de güzellik amacıyla kullanılmıştır..."
+    },
+    {
+        title: "Sakura ve Geçicilik",
+        image: "images/sakura.jpg",
+        excerpt: "Sakura çiçeği hayatın geçiciliğini simgeler.",
+        content: "Japon kültüründe sakura, anın değerini bilmeyi temsil eder..."
+    }
+];
+
+
 /* =====================
    WEATHER PREFERENCE
    ===================== */
@@ -203,6 +221,47 @@ const weatherPreference = {
         }
     }
 };
+
+
+function openStoriesModal() {
+    const list = document.getElementById("storiesList");
+    list.innerHTML = "";
+
+    stories.forEach((story, index) => {
+        const card = document.createElement("div");
+        card.className = "story-card";
+
+        card.innerHTML = `
+            <img src="${story.image}">
+            <h3>${story.title}</h3>
+            <p>${story.excerpt}</p>
+        `;
+
+        card.onclick = () => openStoryDetail(index);
+        list.appendChild(card);
+    });
+
+    document.getElementById("storiesModal").style.display = "flex";
+}
+
+function closeStoriesModal() {
+    document.getElementById("storiesModal").style.display = "none";
+}
+
+function openStoryDetail(index) {
+    const story = stories[index];
+
+    document.getElementById("modalImage").src = story.image;
+    document.getElementById("modalImage").style.display = "block";
+
+    document.getElementById("modalName").innerText = story.title;
+    document.getElementById("modalMeaning").innerText = story.content;
+
+    document.getElementById("modalFacts").innerHTML = "";
+
+    document.getElementById("modal").style.display = "flex";
+}
+
 
 /* =====================
    FLOWER GRID
@@ -257,6 +316,16 @@ function closeWeatherModal() {
     document.getElementById("weatherList").innerHTML = "";
 }
 
+//choose modal
+function openChooseModal() {
+    document.getElementById("chooseModal").style.display = "flex";
+}
+
+function closeChooseModal() {
+    document.getElementById("chooseModal").style.display = "none";
+}
+
+
 /* =====================
    WEATHER LOGIC
    ===================== */
@@ -281,7 +350,23 @@ function getWeatherIcon(category) {
     return category === "sunny" ? "☀️" :
         category === "rainy" ? "🌧️" :
             category === "cold" ? "❄️" : "🌤️";
+
+
 }
+
+
+const chooseRules = {
+    self: {
+        peace: ["Lavanta", "Orkide"],
+        happy: ["Papatya", "Ayçiçeği"],
+        love: ["Gül", "Sakura"]
+    },
+    gift: {
+        peace: ["Lavanta", "Manolya"],
+        happy: ["Papatya", "Begonya"],
+        love: ["Gül", "Şakayık"]
+    }
+};
 
 /* =====================
    WEATHER BUTTON
@@ -329,3 +414,44 @@ Bu koşullarda ${pref.choice === "plant" ? "bitki" : "çiçek"} tercih etmek dah
             "Şehir bulunamadı 😢";
     }
 };
+
+document.getElementById("chooseBtn").onclick = () => {
+    const person = document.getElementById("choosePerson").value;
+    const mood = document.getElementById("chooseMood").value;
+
+    const result = document.getElementById("chooseResult");
+    result.innerHTML = "";
+
+    const suggestions = chooseRules[person][mood];
+
+    suggestions.forEach(name => {
+        const flower = flowers.find(f => f.name === name);
+        if (!flower) return;
+
+        const li = document.createElement("li");
+        li.className = "choose-card";
+
+        li.innerHTML = `
+        <img src="${flower.image}" alt="${flower.name}">
+        <span>${flower.name}</span>
+    `;
+
+        result.appendChild(li);
+    });
+
+};
+
+
+function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+
+
+
+
+}
+

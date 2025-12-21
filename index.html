@@ -23,10 +23,12 @@
             </div>
 
             <ul class="menu">
-                <li data-section="flowers">Flowers</li>
-                <li data-section="choose">Choose for Me</li>
+
+                <li onclick="scrollToSection('flowers')">Flowers</li>
+                <li onclick="openChooseModal()">Choose for Me</li>
                 <li onclick="openWeatherModal()">Weather Guide</li>
-                <li data-section="stories">Plant Stories</li>
+                <li onclick="openStoriesModal()">Plant Stories</li>
+
             </ul>
         </div>
     </nav>
@@ -60,6 +62,7 @@
             <ul id="modalFacts"></ul>
         </div>
     </div>
+
     <!-- WEATHER MODAL -->
     <div class="modal" id="weatherModal">
         <div class="modal-content">
@@ -81,9 +84,66 @@
 
 
 
+    <!-- CHOOSE FOR ME MODAL -->
+    <div class="modal" id="chooseModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeChooseModal()">×</span>
+
+            <h2>Choose for Me</h2>
+            <p>Birkaç soruya cevap ver, sana en uygun çiçeği seçelim</p>
+
+            <div class="choose-group">
+                <label for="choosePerson">Kime alıyorsun?</label>
+                <select id="choosePerson">
+                    <option value="self">Kendime</option>
+                    <option value="gift">Hediye</option>
+                </select>
+            </div>
+
+            <div class="choose-group">
+                <label for="chooseMood">Ne hissettirmek istiyorsun?</label>
+                <select id="chooseMood">
+                    <option value="love">Aşk</option>
+                    <option value="happy">Mutluluk</option>
+                    <option value="peace">Huzur</option>
+                </select>
+            </div>
+
+            <div class="choose-group">
+                <label for="choosePlace">Nerede duracak?</label>
+                <select id="choosePlace">
+                    <option value="home">Ev</option>
+                    <option value="office">Ofis</option>
+                </select>
+            </div>
+
+
+            <button id="chooseBtn">Bana Seç</button>
+
+            <ul id="chooseResult"></ul>
+        </div>
+    </div>
+
+    <!-- PLANT STORIES MODAL -->
+    <div class="modal" id="storiesModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeStoriesModal()">×</span>
+
+            <h2>Plant Stories</h2>
+            <p>Bitkilerin ve çiçeklerin ardındaki küçük hikâyeler 🌿</p>
+
+            <div class="story-grid" id="storiesList">
+                <!-- JS ile dolacak -->
+            </div>
+        </div>
+    </div>
+
+
     <!-- JS -->
     <script src="app.js"></script>
 
 </body>
+
+
 
 </html>
