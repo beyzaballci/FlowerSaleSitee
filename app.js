@@ -66,7 +66,8 @@ const flowers = [
         facts: [
             "Rahatlatıcı etkisi vardır",
             "Yağı aromaterapide kullanılır",
-            "Akdeniz iklimini sever"
+            "Akdeniz iklimini sever",
+            "Lavanta sivrisinekleri uzaklaştırır"
         ]
     },
     {
@@ -76,11 +77,12 @@ const flowers = [
         facts: [
             "Dünyada 25.000’den fazla türü vardır",
             "Bakımı sabır ister",
-            "Uzun süre çiçekli kalabilir"
+            "Uzun süre çiçekli kalabilir",
+            "Kışın içtiğimiz salebin kökeni orkidelere dayanır"
         ]
     },
     {
-        name: "Küpeli Çiçeği",
+        name: "Küpeli",
         image: "images/kupeli.jpg",
         meaning: "Zarafet, incelik ve içten sevgiyi simgeler.",
         facts: [
@@ -116,7 +118,8 @@ const flowers = [
         facts: [
             "Japon kültüründe çok özel bir yere sahiptir",
             "Kısa sürede açıp dökülmesi hayatın geçiciliğini temsil eder",
-            "Baharın gelişini simgeler"
+            "Baharın gelişini simgeler",
+            "Japon kültüründe sakura, hayatın kırılganlığını temsil eder. Bu yüzden sakura festivalleri aynı zamanda kaybedilenleri anma geleneğiyle ilişkilidir."
         ]
     },
     {
@@ -172,20 +175,6 @@ const plants = [
     { name: "Monstera", image: "images/monstera.jpg" }
 ];
 
-const stories = [
-    {
-        title: "Lavanta’nın Huzur Veren Hikâyesi",
-        image: "images/lavanta.jpg",
-        excerpt: "Lavanta yüzyıllardır sakinleştirici etkisiyle bilinir.",
-        content: "Lavanta Antik Roma’dan beri hem şifa hem de güzellik amacıyla kullanılmıştır..."
-    },
-    {
-        title: "Sakura ve Geçicilik",
-        image: "images/sakura.jpg",
-        excerpt: "Sakura çiçeği hayatın geçiciliğini simgeler.",
-        content: "Japon kültüründe sakura, anın değerini bilmeyi temsil eder..."
-    }
-];
 
 
 /* =====================
@@ -223,44 +212,7 @@ const weatherPreference = {
 };
 
 
-function openStoriesModal() {
-    const list = document.getElementById("storiesList");
-    list.innerHTML = "";
 
-    stories.forEach((story, index) => {
-        const card = document.createElement("div");
-        card.className = "story-card";
-
-        card.innerHTML = `
-            <img src="${story.image}">
-            <h3>${story.title}</h3>
-            <p>${story.excerpt}</p>
-        `;
-
-        card.onclick = () => openStoryDetail(index);
-        list.appendChild(card);
-    });
-
-    document.getElementById("storiesModal").style.display = "flex";
-}
-
-function closeStoriesModal() {
-    document.getElementById("storiesModal").style.display = "none";
-}
-
-function openStoryDetail(index) {
-    const story = stories[index];
-
-    document.getElementById("modalImage").src = story.image;
-    document.getElementById("modalImage").style.display = "block";
-
-    document.getElementById("modalName").innerText = story.title;
-    document.getElementById("modalMeaning").innerText = story.content;
-
-    document.getElementById("modalFacts").innerHTML = "";
-
-    document.getElementById("modal").style.display = "flex";
-}
 
 
 /* =====================
@@ -368,6 +320,30 @@ const chooseRules = {
     }
 };
 
+
+const faqs = [
+    {
+        question: "Bitkiler neden sararır?",
+        answer: "En yaygın sebep fazla sulamadır. Işık yetersizliği ve besin eksikliği de sararmaya neden olabilir."
+    },
+    {
+        question: "Her bitkiyi aynı sıklıkta sulamak doğru mu?",
+        answer: "Hayır. Kaktüs ve sukulentler seyrek, orkide gibi bitkiler düzenli ama az sulama ister."
+    },
+    {
+        question: "Saksı değişimi ne zaman yapılmalı?",
+        answer: "Genellikle ilkbahar ayları en uygunudur. Bitki aktif büyümeye geçer."
+    },
+    {
+        question: "Bitkiler gece oksijen üretir mi?",
+        answer: "Çoğu bitki gece oksijen üretmez; paşa kılıcı gibi bazı türler istisnadır."
+    },
+    {
+        question: "Orkide kaç günde bir sulanmalı?",
+        answer: "Genelde haftada 1 kez yeterlidir. Köklerin kuruması beklenmelidir."
+    }
+];
+
 /* =====================
    WEATHER BUTTON
    ===================== */
@@ -440,6 +416,32 @@ document.getElementById("chooseBtn").onclick = () => {
     });
 
 };
+
+function openFaqModal() {
+    const list = document.getElementById("faqList");
+    list.innerHTML = "";
+
+    faqs.forEach(faq => {
+        const item = document.createElement("div");
+        item.className = "faq-item";
+        item.innerHTML = `
+      <div class="faq-question">
+        ${faq.question}
+        <span>+</span>
+      </div>
+      <div class="faq-answer">${faq.answer}</div>
+    `;
+        item.onclick = () => item.classList.toggle("active");
+        list.appendChild(item);
+    });
+
+    document.getElementById("faqModal").style.display = "flex";
+}
+
+function closeFaqModal() {
+    document.getElementById("faqModal").style.display = "none";
+}
+
 
 
 function scrollToSection(id) {

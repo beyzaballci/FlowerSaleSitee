@@ -24,10 +24,12 @@
 
             <ul class="menu">
 
-                <li onclick="scrollToSection('flowers')">Flowers</li>
-                <li onclick="openChooseModal()">Choose for Me</li>
-                <li onclick="openWeatherModal()">Weather Guide</li>
-                <li onclick="openStoriesModal()">Plant Stories</li>
+                <li onclick="scrollToSection('flowers')">Çiçekler</li>
+                <li onclick="openChooseModal()">Benim İçin Seç</li>
+                <li onclick="openWeatherModal()">Hava Durumu Rehberi</li>
+                <li onclick="openFaqModal()">Merak Edilenler</li>
+
+
 
             </ul>
         </div>
@@ -36,14 +38,14 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-text">
-            <h1>Every flower<br>has a story</h1>
+            <h1>Her çiçeğin<br>bir hikayesi vardır</h1>
             <p>Çiçeklerin anlamlarını ve onlara dair küçük sırları keşfet.</p>
         </div>
     </section>
 
     <!-- FLOWERS -->
     <section class="flowers" id="flowers">
-        <h2>Flowers</h2>
+        <h2>Çiçekler</h2>
         <div class="flower-grid" id="flowerGrid"></div>
     </section>
 
@@ -68,7 +70,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeWeatherModal()">×</span>
 
-            <h2>Weather Guide</h2>
+            <h2>Hava Durumu Rehberi</h2>
             <p>Bulunduğun şehre göre çiçek mi bitki mi daha mantıklı?</p>
 
             <input type="text" id="weatherCityInput" placeholder="Şehir gir">
@@ -89,7 +91,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeChooseModal()">×</span>
 
-            <h2>Choose for Me</h2>
+            <h2>Benim İçin Seç</h2>
             <p>Birkaç soruya cevap ver, sana en uygun çiçeği seçelim</p>
 
             <div class="choose-group">
@@ -123,20 +125,18 @@
             <ul id="chooseResult"></ul>
         </div>
     </div>
-
-    <!-- PLANT STORIES MODAL -->
-    <div class="modal" id="storiesModal">
+    <!-- FAQ MODAL -->
+    <div class="modal" id="faqModal">
         <div class="modal-content">
-            <span class="close" onclick="closeStoriesModal()">×</span>
+            <span class="close" onclick="closeFaqModal()">×</span>
 
-            <h2>Plant Stories</h2>
-            <p>Bitkilerin ve çiçeklerin ardındaki küçük hikâyeler 🌿</p>
+            <h2>Merak Edilenler</h2>
+            <p>Bitkilerle ilgili en sık sorulan sorular 🌿</p>
 
-            <div class="story-grid" id="storiesList">
-                <!-- JS ile dolacak -->
-            </div>
+            <div class="faq-list" id="faqList"></div>
         </div>
     </div>
+
 
 
     <!-- JS -->
