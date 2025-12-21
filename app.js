@@ -1,3 +1,11 @@
+/* =====================
+   API KEY
+   ===================== */
+const API_KEY = "2d48ca006bf4ab3a9949c859e98ff831";
+
+/* =====================
+   FLOWERS
+   ===================== */
 const flowers = [
     {
         name: "Lale",
@@ -11,7 +19,7 @@ const flowers = [
     },
     {
         name: "Gül",
-        image: "images/gül.jpg",
+        image: "images/gul.jpg",
         meaning: "Aşkı, tutkuyu ve derin duyguları temsil eder.",
         facts: [
             "Antik çağlardan beri sembol olarak kullanılır",
@@ -148,28 +156,77 @@ const flowers = [
             "Gösterişli yaprak ve çiçeklere sahiptir",
             "Düzenli sulama ister"
         ]
-    },
-
-
+    }
 ];
 
+/* =====================
+   PLANTS
+   ===================== */
+const plants = [
+    { name: "Kaktüs", image: "images/kaktus.jpg" },
+    { name: "Sukulent", image: "images/sukulent.jpg" },
+    { name: "Paşa Kılıcı", image: "images/pasakilici.jpg" },
+    { name: "Zamioculcas", image: "images/zamioculcas.jpg" },
+    { name: "Monstera", image: "images/monstera.jpg" }
+];
 
+/* =====================
+   WEATHER PREFERENCE
+   ===================== */
+const weatherPreference = {
+    sunny: {
+        choice: "plant",
+        reasons: {
+            "Kaktüs": "Sıcağı ve güneşi sever, az su ister.",
+            "Sukulent": "Su depoladığı için güneşte dayanıklıdır."
+        }
+    },
+    rainy: {
+        choice: "plant",
+        reasons: {
+            "Paşa Kılıcı": "Nemli ortamlarda kolay bakım ister.",
+            "Zamioculcas": "Düşük ışık ve nemli havalarda sağlıklı kalır."
+        }
+    },
+    cold: {
+        choice: "plant",
+        reasons: {
+            "Zamioculcas": "Soğuk ve düşük ışık koşullarına dayanıklıdır.",
+            "Monstera": "Serin ortamlarda yavaş ama sağlıklı büyür."
+        }
+    },
+    mild: {
+        choice: "flower",
+        reasons: {
+            "Papatya": "Ilıman havalarda bol çiçek açar.",
+            "Sakura": "Serin ve ılıman bahar havalarında çiçeklenir."
+        }
+    }
+};
+
+/* =====================
+   FLOWER GRID
+   ===================== */
 const grid = document.getElementById("flowerGrid");
 
 flowers.forEach((flower, index) => {
     const card = document.createElement("div");
     card.className = "flower-card";
     card.innerHTML = `
-    <img src="${flower.image}">
-    <h3>${flower.name}</h3>
-  `;
-    card.onclick = () => openModal(index);
+        <img src="${flower.image}">
+        <h3>${flower.name}</h3>
+    `;
+    card.onclick = () => openFlowerModal(index);
     grid.appendChild(card);
 });
 
-function openModal(index) {
+/* =====================
+   FLOWER MODAL
+   ===================== */
+function openFlowerModal(index) {
     const f = flowers[index];
     document.getElementById("modal").style.display = "flex";
+    document.getElementById("modalImage").style.display = "block";
     document.getElementById("modalImage").src = f.image;
     document.getElementById("modalName").innerText = f.name;
     document.getElementById("modalMeaning").innerText = f.meaning;
@@ -186,3 +243,89 @@ function openModal(index) {
 function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
+
+/* =====================
+   WEATHER MODAL
+   ===================== */
+function openWeatherModal() {
+    document.getElementById("weatherModal").style.display = "flex";
+}
+
+function closeWeatherModal() {
+    document.getElementById("weatherModal").style.display = "none";
+    document.getElementById("weatherResultText").innerText = "";
+    document.getElementById("weatherList").innerHTML = "";
+}
+
+/* =====================
+   WEATHER LOGIC
+   ===================== */
+async function getWeather(city) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=tr&appid=${API_KEY}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Şehir bulunamadı");
+    return res.json();
+}
+
+function mapWeatherToCategory(data) {
+    const temp = data.main.temp;
+    const main = data.weather[0].main;
+
+    if (main === "Rain") return "rainy";
+    if (main === "Clear" && temp > 15) return "sunny";
+    if (temp < 10) return "cold";
+    return "mild";
+}
+
+function getWeatherIcon(category) {
+    return category === "sunny" ? "☀️" :
+        category === "rainy" ? "🌧️" :
+            category === "cold" ? "❄️" : "🌤️";
+}
+
+/* =====================
+   WEATHER BUTTON
+   ===================== */
+document.getElementById("weatherCheckBtn").onclick = async () => {
+    const city = document.getElementById("weatherCityInput").value.trim();
+    if (!city) return;
+
+    try {
+        const data = await getWeather(city);
+        const category = mapWeatherToCategory(data);
+        const pref = weatherPreference[category];
+        const source = pref.choice === "plant" ? plants : flowers;
+        const icon = getWeatherIcon(category);
+
+        document.getElementById("weatherResultText").innerText =
+            `${city} için hava: ${data.weather[0].description} (${Math.round(data.main.temp)}°C ${icon}).
+Bu koşullarda ${pref.choice === "plant" ? "bitki" : "çiçek"} tercih etmek daha mantıklı `;
+
+        const list = document.getElementById("weatherList");
+        list.innerHTML = "";
+
+        Object.keys(pref.reasons).forEach(name => {
+            const item = source.find(x => x.name === name);
+            if (!item) return;
+
+            const card = document.createElement("div");
+            card.className = "weather-card";
+
+            card.innerHTML = `
+                <div class="weather-badge">${icon}</div>
+                <div class="tooltip">
+                    <div class="tooltip-title">Neden uygun?</div>
+                    ${pref.reasons[name]}
+                </div>
+                <img src="${item.image}">
+                <h4>${item.name}</h4>
+            `;
+
+            list.appendChild(card);
+        });
+
+    } catch {
+        document.getElementById("weatherResultText").innerText =
+            "Şehir bulunamadı 😢";
+    }
+};
