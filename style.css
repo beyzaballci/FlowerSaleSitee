@@ -4,24 +4,24 @@
     box-sizing: border-box;
 }
 
-/* =====================
+/*
    GENERAL
-   ===================== */
+    */
 body {
     font-family: 'Poppins', sans-serif;
     background: #f9f7f4;
     color: #333;
 }
 
-/* =====================
+/* 
    NAVBAR
-   ===================== */
+  */
 .navbar {
     height: 90px;
     background: #f9f7f4;
 }
 
-/* 🔥 ORTALI NAVBAR İÇERİĞİ */
+/*  ORTALI NAVBAR İÇERİĞİ */
 .navbar-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -31,9 +31,9 @@ body {
     align-items: center;
 }
 
-/* =====================
+/*
    LOGO (ÇİZGİSİZ – BİNDİRMELİ)
-   ===================== */
+    */
 .logo {
     display: flex;
     align-items: center;
@@ -58,9 +58,8 @@ body {
     line-height: 1;
 }
 
-/* =====================
-   MENU
-   ===================== */
+/* 
+   MENU */
 .menu {
     display: flex;
     gap: 30px;
@@ -76,9 +75,9 @@ body {
     cursor: pointer;
 }
 
-/* =====================
+/*
    HERO
-   ===================== */
+   */
 .hero {
     min-height: calc(83vh - 90px);
     background: url("images/ci3.jpg") center / cover no-repeat;
@@ -103,9 +102,9 @@ body {
     font-size: 15px;
 }
 
-/* =====================
+/* 
    FLOWERS
-   ===================== */
+ */
 .flowers {
     padding: 120px 80px 80px;
 }
@@ -137,9 +136,9 @@ body {
     margin-top: 12px;
 }
 
-/* =====================
+/*
    MODAL
-   ===================== */
+    */
 .modal {
     position: fixed;
     inset: 0;
@@ -183,9 +182,9 @@ body {
     font-size: 22px;
 }
 
-/* =====================
+/* 
    RESPONSIVE
-   ===================== */
+    */
 @media (max-width: 768px) {
 
     .navbar-inner {
@@ -261,9 +260,9 @@ body {
     font-size: 16px;
 }
 
-/* =====================
+/* 
    WEATHER GUIDE (MODAL)
-   ===================== */
+    */
 
 .weather-cards {
     margin-top: 25px;
@@ -321,9 +320,9 @@ body {
     background: #587a5d;
 }
 
-/* =====================
+/*
    WEATHER TOOLTIP
-   ===================== */
+ */
 
 .tooltip {
     position: absolute;
@@ -354,9 +353,9 @@ body {
     font-size: 14px;
 }
 
-/* =====================
+/*
    CHOOSE FOR ME MODAL
-   ===================== */
+   */
 
 #chooseModal .modal-content {
     max-width: 520px;
@@ -423,9 +422,9 @@ body {
     font-size: 14px;
 }
 
-/* =====================
+/*
    CHOOSE RESULT CARDS
-   ===================== */
+   */
 
 #chooseResult {
     display: grid;
@@ -436,9 +435,9 @@ body {
     list-style: none;
 }
 
-/* =====================
+/*
    CHOOSE RESULT CARDS
-   ===================== */
+   */
 
 #chooseResult {
     display: grid;
@@ -459,7 +458,6 @@ body {
 .choose-card img {
     width: 100%;
     height: 120px;
-    /* 🔥 BURASI ÖNEMLİ */
     object-fit: cover;
     display: block;
 }
@@ -475,9 +473,8 @@ body {
     transition: 0.3s;
 }
 
-/* =====================
-   FAQ
-   ===================== */
+/* 
+   FAQ*/
 .faq-list {
     margin-top: 24px;
 }

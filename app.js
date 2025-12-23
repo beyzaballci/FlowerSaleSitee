@@ -1,13 +1,11 @@
-/* =====================
-   API KEY
-   ===================== */
+
+
+/* hava durumu API’sine bağlanmak için kullanılan anahtar */
 const API_KEY = "2d48ca006bf4ab3a9949c859e98ff831";
 
 
 
-/* =====================
-   FLOWERS
-   ===================== */
+/* FLOWERS */
 const flowers = [
     {
         name: "Lale",
@@ -164,9 +162,9 @@ const flowers = [
     }
 ];
 
-/* =====================
+/*
    PLANTS
-   ===================== */
+   */
 const plants = [
     { name: "Kaktüs", image: "images/kaktus.jpg" },
     { name: "Sukulent", image: "images/sukulent.jpg" },
@@ -177,9 +175,9 @@ const plants = [
 
 
 
-/* =====================
+/* 
    WEATHER PREFERENCE
-   ===================== */
+    */
 const weatherPreference = {
     sunny: {
         choice: "plant",
@@ -215,9 +213,11 @@ const weatherPreference = {
 
 
 
-/* =====================
+/* 
    FLOWER GRID
-   ===================== */
+   Çiçek kartlarını ekrana basıyor
+   Bunu dinamik olarak yapar
+    */
 const grid = document.getElementById("flowerGrid");
 
 flowers.forEach((flower, index) => {
@@ -231,9 +231,9 @@ flowers.forEach((flower, index) => {
     grid.appendChild(card);
 });
 
-/* =====================
+/* 
    FLOWER MODAL
-   ===================== */
+    */
 function openFlowerModal(index) {
     const f = flowers[index];
     document.getElementById("modal").style.display = "flex";
@@ -255,9 +255,9 @@ function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
 
-/* =====================
+/* 
    WEATHER MODAL
-   ===================== */
+    */
 function openWeatherModal() {
     document.getElementById("weatherModal").style.display = "flex";
 }
@@ -275,12 +275,19 @@ function openChooseModal() {
 
 function closeChooseModal() {
     document.getElementById("chooseModal").style.display = "none";
+
+    document.getElementById("choosePerson").selectedIndex = 0;
+    document.getElementById("chooseMood").selectedIndex = 0;
+    document.getElementById("choosePlace").selectedIndex = 0;
+
+    document.getElementById("chooseResult").innerHTML = "";
 }
 
 
-/* =====================
+
+/* 
    WEATHER LOGIC
-   ===================== */
+    */
 async function getWeather(city) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=tr&appid=${API_KEY}`;
     const res = await fetch(url);
@@ -370,9 +377,9 @@ const faqs = [
 
 ];
 
-/* =====================
+/* 
    WEATHER BUTTON
-   ===================== */
+    */
 document.getElementById("weatherCheckBtn").onclick = async () => {
     const city = document.getElementById("weatherCityInput").value.trim();
     if (!city) return;

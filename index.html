@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <!-- mobil uyumun temeli burada atılıyoo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>flowerest</title>
 
@@ -29,8 +30,6 @@
                 <li onclick="openWeatherModal()">Hava Durumu Rehberi</li>
                 <li onclick="openFaqModal()">Merak Edilenler</li>
 
-
-
             </ul>
         </div>
     </nav>
@@ -50,24 +49,24 @@
     </section>
 
 
-
     <!-- MODAL -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">×</span>
 
-            <img id="modalImage">
+            <img id="modalImage"> <!-- resimler js ile geliyor -->
             <h2 id="modalName"></h2>
-            <p class="meaning" id="modalMeaning"></p>
+            <p class="meaning" id="modalMeaning"></p> <!-- js ile geliyor -->
+            or
 
             <h4>İlginç Bilgiler</h4>
-            <ul id="modalFacts"></ul>
+            <ul id="modalFacts"></ul><!-- js ile geliyor -->
         </div>
     </div>
 
     <!-- WEATHER MODAL -->
     <div class="modal" id="weatherModal">
-        <div class="modal-content">
+        <div class="modal-content"> <!--içerik kutusu , tüm içerikler burada -->
             <span class="close" onclick="closeWeatherModal()">×</span>
 
             <h2>Hava Durumu Rehberi</h2>
@@ -77,7 +76,7 @@
 
             <button id="weatherCheckBtn">Kontrol Et</button>
 
-            <p id="weatherResultText"></p>
+            <p id="weatherResultText"></p> <!-- sonuç jsden gelecek -->
 
             <div class="weather-cards" id="weatherList"></div>
 
@@ -137,7 +136,7 @@
             <div class="faq-list" id="faqList"></div>
         </div>
     </div>
-
+    <!-- FAQ (Frequently Asked Questions) -->
 
 
     <!-- JS -->
