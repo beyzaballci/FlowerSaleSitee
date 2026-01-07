@@ -1,4 +1,3 @@
-Flowerest
 Flowerest, çiçekler ve bitkiler hakkında bilgi veren, kullanıcıya etkileşimli öneriler sunan frontend tabanlı bir web projesidir.
 
 ✨ Özellikler
